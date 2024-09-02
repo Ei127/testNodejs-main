@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+  .container-fluid.px-4
+    .row
+      .col-6
+        h1.mt-4 Users
+        ol.breadcrumb.mb-4
+          li.breadcrumb-item.active Users
+    .card.mb-4
+      .card-header
+        i.fas.fa-table.me-1
+        |Users list
+      .card-body
+        table#datatablesSimple
+          thead
+            tr
+              th Id
+              th Full Name
+              th User Name
+              th Email
+              th Role
+              th password
+              th 
+
+          tbody
+            each user in users
+              tr
+                td= user.id
+                td= user.fullName
+                td= user.username
+                td= user.email 
+                td= user.iam_role 
+                td= user.hash_pwd
+                td.d.d-flex.justify-content-around
+                  a(href=`/api/v1/users/${user.id}/books`).btn.btn-primary Details 
